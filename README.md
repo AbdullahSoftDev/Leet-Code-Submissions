@@ -8,13 +8,15 @@ Each problem gets its own folder with a solution file and a `README.md` covering
 |---|---------|-----------|---------|------|
 | 26 | Remove Duplicates from Sorted Array | Easy | Two Pointers (Read/Write) | [Solution](./0026-remove-duplicates-from-sorted-array) |
 | 27 | Remove Element | Easy | Two Pointers (Read/Write) | [Solution](./0027-remove-element) |
+| 80 | Remove Duplicates from Sorted Array II | Medium | Two Pointers (Read/Write) | [Solution](./0080-remove-duplicates-from-sorted-array-ii) |
 | 88 | Merge Sorted Array | Easy | Two Pointers (Merge from Back) | [Solution](./0088-merge-sorted-array) |
 
-*(Table updated as new problems are added.)*
+*(Updations are made daily.)*
 
 ## 🧠 Patterns Covered So Far
-- **In-place partition via read/write pointer** — LC 27 (Remove Element), LC 26 (Remove Duplicates from Sorted Array)
-  - Same shape applies to: LC 283 (Move Zeroes), LC 80 (Remove Duplicates II)
+- **In-place partition via read/write pointer** — LC 27 (Remove Element), LC 26 (Remove Duplicates from Sorted Array), LC 80 (Remove Duplicates from Sorted Array II)
+  - Same shape applies to: LC 283 (Move Zeroes)
+  - LC 80 extends the pattern by comparing against `nums[k-2]` instead of `nums[k-1]`, allowing up to 2 copies instead of 1
 - **Two-pointer merge from the back** — LC 88 (Merge Sorted Array)
   - Used whenever merging into a fixed-size array with reserved trailing space
 
@@ -25,6 +27,9 @@ Leet-Code-Submissions/
 │   ├── README.md
 │   └── solution.py
 ├── 0027-remove-element/
+│   ├── README.md
+│   └── solution.py
+├── 0080-remove-duplicates-from-sorted-array-ii/
 │   ├── README.md
 │   └── solution.py
 ├── 0088-merge-sorted-array/
