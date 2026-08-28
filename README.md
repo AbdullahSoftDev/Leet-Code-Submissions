@@ -11,6 +11,7 @@ Each problem gets its own folder with a solution file and a `README.md` covering
 | 80 | Remove Duplicates from Sorted Array II | Medium | Two Pointers (Read/Write) | [Solution](./0080-remove-duplicates-from-sorted-array-ii) |
 | 88 | Merge Sorted Array | Easy | Two Pointers (Merge from Back) | [Solution](./0088-merge-sorted-array) |
 | 169 | Majority Element | Easy | Hash Map Frequency Count | [Solution](./0169-majority-element) |
+| 189 | Rotate Array | Medium | Array Slicing / Rotation | [Solution](./0189-rotate-array) |
 
 *(Updations are made daily.)*
 
@@ -23,7 +24,10 @@ Each problem gets its own folder with a solution file and a `README.md` covering
 - **Hash map frequency counting** — LC 169 (Majority Element)
   - Build a `value -> count` map in one pass, then pick the key with the max value via `max(dict, key=dict.get)`
   - Next step to revisit: Boyer-Moore Voting Algorithm solves the same problem in O(1) space instead of O(n)
-
+- **Array rotation via slicing** — LC 189 (Rotate Array)
+  - Normalize `k` with `k = k % n` first to handle `k >= n` safely
+  - Split the array at `n - k`, then concatenate the two halves in swapped order and write back with `nums[:] = ...` for true in-place modification
+  - Next step to revisit: the three-reversal trick (reverse whole array, then reverse each half) solves it in O(1) extra space instead of O(n)
   
 ## 🛠 How This Repo Is Organized
 ```
@@ -43,19 +47,19 @@ Leet-Code-Submissions/
 ├── 0169-majority-element/
 │   ├── README.md
 │   └── solution.py
+├── 0189-rotate-array/
+│   ├── README.md
+│   └── solution.py
 └── README.md   ← you are here
 ```
-
 
 ## 🎯 Why I Log Mistakes
 Getting a solution accepted isn't the finish line — being able to explain *why* it works, and where I went wrong along the way, is what actually matters for interviews. Each problem's README includes a "Common Mistakes" section for exactly that reason — it's as much a record of the debugging/reasoning process as it is the final answer.
 
-
 ## 📈 Platforms
 - **LeetCode** — primary, using the [Top Interview 150](https://leetcode.com/studyplan/top-interview-150/) study plan, going pattern by pattern
 - **GeeksforGeeks** — supplementary, for concept explanations before diving into similar LeetCode problems
-
-
+  
 ## 👤 About
 Muhammad Abdullah — CS student, full-stack AI developer, building DSA fundamentals daily alongside frontend practice.
 - GitHub: [@AbdullahSoftDev](https://github.com/AbdullahSoftDev)
