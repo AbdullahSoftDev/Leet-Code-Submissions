@@ -10,6 +10,7 @@ Each problem gets its own folder with a solution file and a `README.md` covering
 | 27 | Remove Element | Easy | Two Pointers (Read/Write) | [Solution](./0027-remove-element) |
 | 80 | Remove Duplicates from Sorted Array II | Medium | Two Pointers (Read/Write) | [Solution](./0080-remove-duplicates-from-sorted-array-ii) |
 | 88 | Merge Sorted Array | Easy | Two Pointers (Merge from Back) | [Solution](./0088-merge-sorted-array) |
+| 121 | Best Time to Buy and Sell Stock | Easy | One-Pass Running Min/Max | [Solution](./0121-best-time-to-buy-and-sell-stock) |
 | 169 | Majority Element | Easy | Hash Map Frequency Count | [Solution](./0169-majority-element) |
 | 189 | Rotate Array | Medium | Array Slicing / Rotation | [Solution](./0189-rotate-array) |
 
@@ -21,6 +22,9 @@ Each problem gets its own folder with a solution file and a `README.md` covering
   - LC 80 extends the pattern by comparing against `nums[k-2]` instead of `nums[k-1]`, allowing up to 2 copies instead of 1
 - **Two-pointer merge from the back** — LC 88 (Merge Sorted Array)
   - Used whenever merging into a fixed-size array with reserved trailing space
+- **One-pass running min/max** — LC 121 (Best Time to Buy and Sell Stock)
+  - Track the lowest price seen *so far* while scanning left to right, and compare profit against it at every index — don't find the global min first and search after it, since the true min can come after the best sell point
+  - Same shape applies to: any "best pair where first index < second index" problem solvable in a single forward pass
 - **Hash map frequency counting** — LC 169 (Majority Element)
   - Build a `value -> count` map in one pass, then pick the key with the max value via `max(dict, key=dict.get)`
   - Next step to revisit: Boyer-Moore Voting Algorithm solves the same problem in O(1) space instead of O(n)
@@ -42,6 +46,9 @@ Leet-Code-Submissions/
 │   ├── README.md
 │   └── solution.py
 ├── 0088-merge-sorted-array/
+│   ├── README.md
+│   └── solution.py
+├── 0121-best-time-to-buy-and-sell-stock/
 │   ├── README.md
 │   └── solution.py
 ├── 0169-majority-element/
