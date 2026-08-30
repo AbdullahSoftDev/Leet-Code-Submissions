@@ -11,6 +11,7 @@ Each problem gets its own folder with a solution file and a `README.md` covering
 | 80 | Remove Duplicates from Sorted Array II | Medium | Two Pointers (Read/Write) | [Solution](./0080-remove-duplicates-from-sorted-array-ii) |
 | 88 | Merge Sorted Array | Easy | Two Pointers (Merge from Back) | [Solution](./0088-merge-sorted-array) |
 | 121 | Best Time to Buy and Sell Stock | Easy | One-Pass Running Min/Max | [Solution](./0121-best-time-to-buy-and-sell-stock) |
+| 122 | Best Time to Buy and Sell Stock II | Medium | Greedy (Sum of Positive Differences) | [Solution](./0122-best-time-to-buy-and-sell-stock-ii) |
 | 169 | Majority Element | Easy | Hash Map Frequency Count | [Solution](./0169-majority-element) |
 | 189 | Rotate Array | Medium | Array Slicing / Rotation | [Solution](./0189-rotate-array) |
 
@@ -25,6 +26,11 @@ Each problem gets its own folder with a solution file and a `README.md` covering
 - **One-pass running min/max** — LC 121 (Best Time to Buy and Sell Stock)
   - Track the lowest price seen *so far* while scanning left to right, and compare profit against it at every index — don't find the global min first and search after it, since the true min can come after the best sell point
   - Same shape applies to: any "best pair where first index < second index" problem solvable in a single forward pass
+- **Greedy sum of positive differences** — LC 122 (Best Time to Buy and Sell Stock II)
+  - Unlike LC 121, unlimited transactions are allowed, so there's no need to track a running minimum at all
+  - Compare each day only to the day *immediately before it*; whenever the price rises, add that gain to the running total, and skip every day it falls
+  - Works because of the telescoping-sum property: `(pn - p1) = (p2-p1) + (p3-p2) + ... + (pn - p(n-1))`, so summing every positive daily change always equals the best possible profit
+  - Do not confuse this with LC 121's single-transaction pattern — reusing a global-minimum tracker here silently produces the wrong (lower) answer
 - **Hash map frequency counting** — LC 169 (Majority Element)
   - Build a `value -> count` map in one pass, then pick the key with the max value via `max(dict, key=dict.get)`
   - Next step to revisit: Boyer-Moore Voting Algorithm solves the same problem in O(1) space instead of O(n)
@@ -49,6 +55,9 @@ Leet-Code-Submissions/
 │   ├── README.md
 │   └── solution.py
 ├── 0121-best-time-to-buy-and-sell-stock/
+│   ├── README.md
+│   └── solution.py
+├── 0122-best-time-to-buy-and-sell-stock-ii/
 │   ├── README.md
 │   └── solution.py
 ├── 0169-majority-element/
